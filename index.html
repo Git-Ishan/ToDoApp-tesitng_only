@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7f7fb" />
+  <meta name="description" content="A simple, focused todo app to organize your day." />
+  <title>TaskFlow — Your day, organized</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="TaskFlow home"><span class="brand-mark">✓</span> taskflow</a>
+      <span class="local-label"><span class="status-dot"></span> Your personal workspace</span>
+    </header>
+
+    <section class="hero">
+      <p class="eyebrow">MAKE SPACE FOR WHAT MATTERS</p>
+      <h1>Your day,<br /><span>organized.</span></h1>
+      <p class="subtitle">A little progress every day adds up.</p>
+    </section>
+
+    <section class="todo-card" aria-labelledby="tasks-heading">
+      <div class="card-heading">
+        <div>
+          <p class="eyebrow">YOUR LIST</p>
+          <h2 id="tasks-heading">Today's tasks</h2>
+        </div>
+        <div class="date-pill" id="today-date">TODAY</div>
+      </div>
+
+      <form id="todo-form" class="add-form">
+        <label class="sr-only" for="todo-input">New task</label>
+        <input id="todo-input" type="text" maxlength="160" placeholder="What needs to get done?" autocomplete="off" required />
+        <button class="add-button" type="submit"><span aria-hidden="true">+</span> Add task</button>
+      </form>
+
+      <div class="toolbar">
+        <div class="filters" role="group" aria-label="Filter tasks">
+          <button class="filter active" type="button" data-filter="all">All <span id="all-count">0</span></button>
+          <button class="filter" type="button" data-filter="active">Active <span id="active-count">0</span></button>
+          <button class="filter" type="button" data-filter="completed">Completed <span id="completed-count">0</span></button>
+        </div>
+        <button id="clear-completed" class="clear-button" type="button">Clear completed</button>
+      </div>
+
+      <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+      <div id="empty-state" class="empty-state">
+        <div class="empty-icon">✳</div>
+        <h3>Nothing on your list yet</h3>
+        <p>Add a task above and take the first step.</p>
+      </div>
+
+      <footer class="card-footer">
+        <span id="remaining-text">You're all caught up.</span>
+        <span class="save-indicator"><span class="status-dot"></span> Saved on this device</span>
+      </footer>
+    </section>
+
+    <footer class="page-footer">
+      <span>Built for small steps and big plans.</span>
+      <span>TaskFlow <span id="year"></span></span>
+    </footer>
+  </main>
+</body>
+</html>
